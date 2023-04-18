@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/select_payment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Payment Method"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="20dp"/>
+
+    <!-- Payment Methods -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="#F7F7F7">
+
+            <!-- Payment Method 1 -->
+            <RadioGroup
+                android:id="@+id/payment_method_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Payment Method 1 Icon -->
+                <ImageView
+                    android:id="@+id/payment_method_1_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/credit_card"/>
+
+                <!-- Payment Method 1 Text -->
+                <RadioButton
+                    android:id="@+id/payment_method_1_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gopay"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"/>
+
+            </RadioGroup>
+
+            <!-- Payment Method 2 -->
+            <RadioGroup
+                android:id="@+id/payment_method_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Payment Method 2 Icon -->
+                <ImageView
+                    android:id="@+id/payment_method_2_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/paypal"/>
+
+                <!-- Payment Method 2 Text -->
+                <RadioButton
+                    android:id="@+id/payment_method_2_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ovo"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"/>
+
+            </RadioGroup>
+
+            <!-- Payment Method 3 -->
+            <RadioGroup
+                android:id="@+id/payment_method_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Payment Method 3 Icon -->
+                <ImageView
+                    android:id="@+id/payment_method_3_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/apple_pay"/>
+
+                <!-- Payment Method 3 Text -->
+                <RadioButton
+                    android:id="@+id/payment_method_3_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ShopeePay"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"/>
+
+            </RadioGroup>
+
+            <!-- Select Delivery Location -->
+<!--            <TextView-->
+<!--                android:id="@+id/select_delivery_location"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Select Delivery Location"-->
+<!--                android:textColor="#333333"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:padding="10dp"/>-->
+
+            <!-- Map -->
+<!--            <fragment-->
+<!--                android:id="@+id/map"-->
+<!--                android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"/>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Button -->
+    <Button
+        android:id="@+id/select_payment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed to Payment"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="#F4B41A"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"/>
+</LinearLayout>

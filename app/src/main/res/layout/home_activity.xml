@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- Daily Promo Section -->
+    <TextView
+        android:id="@+id/daily_promo_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daily Promo"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/daily_promo_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/daily_promo_image"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/daily_promo_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get 50% off on all pizzas today!"
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/daily_promo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order now"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:background="#8FBC8F"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Main Page Section -->
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Punix!"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/main_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We offer the best pizza in town. Order now and taste the difference."
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/main_order_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order now"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:background="#8FBC8F"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/main_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About us"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/main_about_us_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Punix has been serving the community for over 20 years. Our secret recipe and dedication to quality have made us the best pizza place in town. We use only the freshest ingredients and our pizza is baked to perfection. Come visit us today and taste the difference for yourself."
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/main_contact_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact us"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/main_contact_us_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Punix Pizza \n123 Main St, \nCity, State 12345\nPhone: (123) 456-7890"
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
