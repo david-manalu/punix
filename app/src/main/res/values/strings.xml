@@ -1,3 +1,43 @@
 <resources>
+    <string name="nama_makanan">Nama Makanan</string>
+    <string name="lorem">lorem ipsum dolor sit amet</string>
     <string name="app_name">Punix</string>
+
+    <string-array name="makanan_name">
+        <item>Pizza GILA</item>
+        <item>Burger Beef</item>
+        <item>Chicken Sandwich</item>
+        <item>Spaghetti Carbonara</item>
+        <item>Protein Bar</item>
+        <item>Classic Kebab</item>
+        <item>Champion Kebab</item>
+    </string-array>
+    <string-array name="makanan_desc">
+        <item>Pizza dengan topping khas yang membuat anda jadi GILA</item>
+        <item>Burger classic dengan patty beef yang lezat</item>
+        <item>Sandwich dengan isi ayam panggang</item>
+        <item>Spaghetti tipe carbonara yang creamy dan gurih</item>
+        <item>Protein bar untuk snack</item>
+        <item>Kebab dengan isi daging sapi dan sayur</item>
+        <item>Kebab dengan isi ayam, sapi, telur, dan sayur</item>
+    </string-array>
+    <array name="price_makanan">
+        <item>70000</item>
+        <item>30000</item>
+        <item>20000</item>
+        <item>32000</item>
+        <item>8000</item>
+        <item>22000</item>
+        <item>27000</item>
+    </array>
+    <array name="data_photo">
+        <item>@drawable/pizza</item>
+        <item>@drawable/hamburger</item>
+        <item>@drawable/sandwich</item>
+        <item>@drawable/spaghetti</item>
+        <item>@drawable/proteinbar</item>
+        <item>@drawable/kebab</item>
+        <item>@drawable/kebabchamp</item>
+    </array>
+
 </resources>

@@ -40,7 +40,7 @@
                     android:id="@+id/payment_method_1_icon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/credit_card"/>
+                    android:src="@drawable/gopay"/>
 
                 <!-- Payment Method 1 Text -->
                 <RadioButton
@@ -68,14 +68,14 @@
                     android:id="@+id/payment_method_2_icon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/paypal"/>
+                    android:src="@drawable/ovoimage"/>
 
                 <!-- Payment Method 2 Text -->
                 <RadioButton
                     android:id="@+id/payment_method_2_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ovo"
+                    android:text="OvO"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -96,7 +96,7 @@
                     android:id="@+id/payment_method_3_icon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/apple_pay"/>
+                    android:src="@drawable/shopeepay"/>
 
                 <!-- Payment Method 3 Text -->
                 <RadioButton

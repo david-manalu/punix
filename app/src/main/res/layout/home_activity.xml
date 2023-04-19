@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <!-- Daily Promo Section -->
     <TextView
@@ -16,7 +21,7 @@
         android:textColor="#333333"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="5dp"/>
 
     <ImageView
         android:id="@+id/daily_promo_image"
@@ -67,10 +72,10 @@
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/main_order_button"
+        android:id="@+id/browse_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order now"
+        android:text="Browse"
         android:textSize="18sp"
         android:textColor="#ffffff"
         android:background="#8FBC8F"
@@ -114,4 +119,5 @@
         android:textColor="#666666"
         android:textSize="18sp"
         android:layout_marginTop="20dp"/>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
