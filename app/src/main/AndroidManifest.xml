@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +14,29 @@
         android:theme="@style/Theme.Punix"
         tools:targetApi="31">
         <activity
-            android:name=".BrowseActivity"
-            android:label="Browse Food"
-            android:parentActivityName=".MainActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".BrowseActivity"
+            android:exported="false"
+            android:label="Browse Food"
+            android:parentActivityName=".MainActivity" />
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.punix.MainActivity"/>
+            android:value="com.example.punix.MainActivity" />
+
         <activity
             android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
