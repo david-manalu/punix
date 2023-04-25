@@ -28,7 +28,7 @@
         android:textSize="18sp"
         android:backgroundTint="#F0E68C"
         android:padding="10dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:id="@+id/password"
@@ -52,7 +52,7 @@
         android:textColor="#ffffff"
         android:background="#8FBC8F"
         android:padding="10dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/forgot_password"

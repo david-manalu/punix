@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388322614527",
+    "project_id": "punix-e2da5",
+    "storage_bucket": "punix-e2da5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388322614527:android:03bcfca918e092086500ca",
+        "android_client_info": {
+          "package_name": "com.example.punix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388322614527-g6d0ihp46rnu4l6qr6t5n6qg9hd7ogf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz60OcobxP-KJGzQ4QE5GHgTTK3_fWyoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388322614527-g6d0ihp46rnu4l6qr6t5n6qg9hd7ogf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
