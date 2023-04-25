@@ -3,6 +3,7 @@ package com.example.punix
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -12,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser
 import org.w3c.dom.Text
 import kotlin.math.sign
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var auth: FirebaseAuth
     private lateinit var email: EditText
     private lateinit var password: EditText
@@ -70,5 +71,15 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "EmailPassword"
+    }
+
+    override fun onClick(v : View) {
+        when(v.id) {
+            R.id.sign_up -> {
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+        }
     }
 }

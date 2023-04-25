@@ -74,7 +74,9 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:clickable="true"/>
 
     <View
         android:layout_width="match_parent"
