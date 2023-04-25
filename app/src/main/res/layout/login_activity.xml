@@ -41,7 +41,7 @@
         android:textSize="18sp"
         android:backgroundTint="#F0E68C"
         android:padding="10dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/login_button"
