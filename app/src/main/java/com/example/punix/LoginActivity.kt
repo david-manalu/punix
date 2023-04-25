@@ -1,20 +1,30 @@
 package com.example.punix
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import org.w3c.dom.Text
+import kotlin.math.sign
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var email: EditText
+    private lateinit var password: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_activity)
 
         auth = FirebaseAuth.getInstance()
+        email = findViewById(R.id.email)
+        password = findViewById(R.id.password)
 
+        signIn(email.toString(), password.toString())
     }
 
     public override fun onStart() {
@@ -43,21 +53,19 @@ class LoginActivity : AppCompatActivity() {
             }
         // [END sign_in_with_email]
     }
-    private fun sendEmailVerification() {
-        // [START send_email_verification]
-        val user = auth.currentUser!!
-        user.sendEmailVerification()
-            .addOnCompleteListener(this) { task ->
-                // Email Verification sent
-            }
-        // [END send_email_verification]
-    }
-    private fun updateUI(user: FirebaseUser?) {
 
+    private fun updateUI(user: FirebaseUser?) {
+        user?.let {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+        } ?: run {
+            reload()
+        }
     }
 
     private fun reload() {
-
+        finish()
+        startActivity(intent)
     }
 
     companion object {
