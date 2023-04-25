@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import org.w3c.dom.Text
-import kotlin.math.sign
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var auth: FirebaseAuth
@@ -31,10 +28,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if (currentUser != null) {
             reload()
         }
     }
+
     private fun signIn(email: String, password: String) {
         // [START sign_in_with_email]
         auth.signInWithEmailAndPassword(email, password)
@@ -47,8 +45,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     updateUI(null)
                 }
             }
@@ -73,8 +73,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         private const val TAG = "EmailPassword"
     }
 
-    override fun onClick(v : View) {
-        when(v.id) {
+    override fun onClick(v: View) {
+        when (v.id) {
             R.id.sign_up -> {
                 val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                 startActivity(intent)

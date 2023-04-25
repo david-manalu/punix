@@ -3,43 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:scaleType="fitXY"
-            android:id="@+id/img_photo" />
-        <TextView
-            android:id="@+id/txt_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/img_photo"
-            android:text="@string/nama_makanan"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txt_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_name"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/img_photo"
-            android:ellipsize="end"
-            android:maxLines="5"
-            android:text="@string/lorem"
-            android:textSize="14sp" />
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_description"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/img_photo"
-            android:ellipsize="end"
-            android:maxLines="5"
-            android:text="@string/lorem"
-            android:textSize="12sp" />
+    <ImageView
+        android:id="@+id/img_photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/img_photo"
+        android:text="@string/nama_makanan"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_name"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/img_photo"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:text="@string/lorem"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_description"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/img_photo"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:text="@string/lorem"
+        android:textSize="12sp" />
 </RelativeLayout>

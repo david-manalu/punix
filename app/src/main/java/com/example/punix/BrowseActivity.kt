@@ -1,12 +1,11 @@
 package com.example.punix
 
 import android.content.res.TypedArray
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 
 class BrowseActivity : AppCompatActivity() {
     private lateinit var adapter: MakananAdapter
@@ -19,14 +18,14 @@ class BrowseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_browse)
-        val listView : ListView = findViewById(R.id.lv_list)
+        val listView: ListView = findViewById(R.id.lv_list)
         adapter = MakananAdapter(this)
         listView.adapter = adapter
 
         prepare()
         addItem()
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener{ _, _, position, _ ->
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             Toast.makeText(this@BrowseActivity, heroes[position].name, Toast.LENGTH_SHORT).show()
         }
     }
