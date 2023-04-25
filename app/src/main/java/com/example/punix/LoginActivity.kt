@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
 
-        signIn(email.toString(), password.toString())
+        signIn(email.text.toString(), password.text.toString())
     }
 
     public override fun onStart() {
