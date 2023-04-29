@@ -20,7 +20,10 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
-
+        btnSignUp = findViewById(R.id.register_button)
+        tvRedirectLogin = findViewById(R.id.login)
+        etEmail = findViewById(R.id.email)
+        etPass = findViewById(R.id.password)
         btnSignUp.setOnClickListener {
             signUpUser()
         }

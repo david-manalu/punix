@@ -85,6 +85,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 this.finish()
             }
+            R.id.forgot_password -> {
+                auth.sendPasswordResetEmail(email.text.toString())
+                Toast.makeText(baseContext,"Password Reset Email successfully sent",Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
