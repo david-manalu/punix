@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         btnLogin = findViewById(R.id.login_button)
+        supportActionBar?.hide()
 
         btnLogin.setOnClickListener {
             signIn(email.text.toString(), password.text.toString())

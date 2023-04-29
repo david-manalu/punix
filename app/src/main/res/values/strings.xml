@@ -2,6 +2,7 @@
     <string name="nama_makanan">Nama Makanan</string>
     <string name="lorem">lorem ipsum dolor sit amet</string>
     <string name="app_name">Punix</string>
+    <string name="logout">Logout</string>
 
     <string-array name="makanan_name">
         <item>Pizza GILA</item>

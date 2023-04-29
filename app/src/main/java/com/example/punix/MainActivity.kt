@@ -3,9 +3,12 @@ package com.example.punix
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -13,6 +16,7 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnBrowse: Button
+    private lateinit var auth: FirebaseAuth
 
     fun getHTTP(url: String): String {
         var responseString = ""
@@ -57,7 +61,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnBrowse = findViewById(R.id.browse_button)
 
         btnBrowse.setOnClickListener(this)
-
+        auth = FirebaseAuth.getInstance()
+        supportActionBar?.show()
         showMessage("test", getHTTP("https://google.com/"));
     }
     override fun onClick(v: View) {
@@ -67,5 +72,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.logout_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout -> {
+                auth.signOut()
+                finish()
+                val intent = Intent(this@MainActivity,LoginActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
