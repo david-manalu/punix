@@ -2,7 +2,7 @@ package com.example.punix
 
 data class MakananData (
     var img: Int,
-    var name: String,
+    var nama: String,
     var desc: String,
-    var price: Int
+    var harga: Int
         )

@@ -6,6 +6,8 @@ import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class BrowseActivity : AppCompatActivity() {
     private lateinit var adapter: MakananAdapter
@@ -13,7 +15,8 @@ class BrowseActivity : AppCompatActivity() {
     private lateinit var dataDescription: Array<String>
     private lateinit var dataPrice: TypedArray
     private lateinit var dataPhoto: TypedArray
-    private var heroes = arrayListOf<MakananData>()
+    private var foods = arrayListOf<MakananData>()
+    // private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +29,7 @@ class BrowseActivity : AppCompatActivity() {
         addItem()
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            Toast.makeText(this@BrowseActivity, heroes[position].name, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@BrowseActivity, foods[position].nama, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -38,9 +41,9 @@ class BrowseActivity : AppCompatActivity() {
                 dataDescription[position],
                 dataPrice.getInt(position, -1)
             )
-            heroes.add(hero)
+            foods.add(hero)
         }
-        adapter.makanans = heroes
+        adapter.makanans = foods
     }
 
     private fun prepare() {

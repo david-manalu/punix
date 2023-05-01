@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import org.w3c.dom.Text
 
 class MakananAdapter internal constructor(private val context: Context) : BaseAdapter() {
     internal var makanans = arrayListOf<MakananData>()
@@ -40,10 +39,10 @@ class MakananAdapter internal constructor(private val context: Context) : BaseAd
         private val price: TextView = view.findViewById(R.id.price)
 
         fun bind(makanan: MakananData) {
-            txtName.text = makanan.name
+            txtName.text = makanan.nama
             txtDescription.text = makanan.desc
             imgPhoto.setImageResource(makanan.img)
-            price.text = "" + makanan.price
+            price.text = "" + makanan.harga
         }
     }
 
