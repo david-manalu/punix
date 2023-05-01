@@ -13,6 +13,9 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.sql.ResultSet
+import java.sql.SQLException
+import java.sql.Statement
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnBrowse: Button
@@ -63,7 +66,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnBrowse.setOnClickListener(this)
         auth = FirebaseAuth.getInstance()
         supportActionBar?.show()
-        showMessage("test", getHTTP("https://google.com/"));
+
+        try
+        {
+            val con = DatabaseHandler.connect()
+            val st: Statement = con!!.createStatement()
+            val rs: ResultSet = st.executeQuery("SELECT * from users")
+            while(rs.next())
+            {
+                showMessage("user ", rs.getString("name"))
+            }
+        }
+        catch (e: SQLException)
+        {
+            e.printStackTrace()
+        }
     }
     override fun onClick(v: View) {
         when(v.id) {
