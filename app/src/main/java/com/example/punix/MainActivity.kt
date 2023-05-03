@@ -8,6 +8,10 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.punix.Controller.CartController
+import com.example.punix.Controller.TransactionController
+import com.example.punix.Controller.UserController
+import com.example.punix.Model.User
 import com.google.firebase.auth.FirebaseAuth
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -69,12 +73,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         try
         {
-            val con = DatabaseHandler.connect()
-            val st: Statement = con!!.createStatement()
-            val rs: ResultSet = st.executeQuery("SELECT * from users")
-            while(rs.next())
+//            for (user in UserController().getUsers()) {
+//                showMessage("user ", user.email + " - " + user.password)
+//            }
+//            val con = DatabaseHandler.connect()
+//            val st: Statement = con!!.createStatement()
+//            val rs: ResultSet = st.executeQuery("SELECT * from users")
+//            while(rs.next())
+//            {
+//                showMessage("user ", rs.getString("name"))
+//            }
+
+
+            //UserController().editUserByEmail(User(0, "Dadang Test", "dadang@gmail.com", "123456", true))
+            //showMessage("g", UserController().getUserByEmail("dadang@gmail.com")!!.name)
+
+            //CartController().updateItemQuantity(4, 1, 6)
+//            CartController().deleteItemFromCart(4, 1)
+//            for (kv in TransactionController().getTransactionById(1).items)
+//            {
+//                showMessage(kv.key.name, kv.value.toString())
+//            }
+            for (transaction in TransactionController().getTransactions())
             {
-                showMessage("user ", rs.getString("name"))
+                showMessage(transaction.id.toString(), transaction.status + " " + transaction.method)
             }
         }
         catch (e: SQLException)
