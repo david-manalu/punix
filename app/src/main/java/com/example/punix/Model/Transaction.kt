@@ -24,7 +24,7 @@ class Transaction(
         datetime,
         status,
         method,
-        detailedTransaction
+        items
     )
 
     // Getters
