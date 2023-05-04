@@ -3,6 +3,17 @@
     <string name="lorem">lorem ipsum dolor sit amet</string>
     <string name="app_name">Punix</string>
     <string name="logout">Logout</string>
+    <string name="welcome_to_punix">Welcome to Punix!</string>
+    <string name="we_offer_the_best_pizza_in_town_order_now_and_taste_the_difference">We offer the best pizza in town. Order now and taste the difference.</string>
+    <string name="browse">Browse</string>
+    <string name="about_us">About us</string>
+    <string name="punix_has_been_serving_the_community_for_over_20_years_our_secret_recipe_and_dedication_to_quality_have_made_us_the_best_pizza_place_in_town_we_use_only_the_freshest_ingredients_and_our_pizza_is_baked_to_perfection_come_visit_us_today_and_taste_the_difference_for_yourself">Punix has been serving the community for over 20 years. Our secret recipe and dedication to quality have made us the best pizza place in town. We use only the freshest ingredients and our pizza is baked to perfection. Come visit us today and taste the difference for yourself.</string>
+    <string name="contact_us">Contact us</string>
+    <string name="punix_pizza_n123_main_st_ncity_state_12345_nphone_123_456_7890">Punix Pizza \n123 Main St, \nCity, State 12345\nPhone: (123) 456-7890</string>
+    <string name="daily_promo">Daily Promo</string>
+    <string name="get_50_off_on_all_pizzas_today">Get 50% off on all pizzas today!</string>
+    <string name="order_now">Order now</string>
+    <string name="cart">cart</string>
 
     <string-array name="makanan_name">
         <item>Pizza GILA</item>

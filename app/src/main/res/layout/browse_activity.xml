@@ -27,7 +27,7 @@
         android:layout_below="@id/txt_name"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/img_photo"
+        android:layout_toEndOf="@id/img_photo"
         android:ellipsize="end"
         android:maxLines="5"
         android:text="@string/lorem"
@@ -40,9 +40,29 @@
         android:layout_below="@id/txt_description"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/img_photo"
+        android:layout_toEndOf="@id/img_photo"
         android:ellipsize="end"
         android:maxLines="5"
         android:text="@string/lorem"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price"
+        android:layout_toEndOf="@id/img_photo"
+        android:backgroundTint="@color/orange"
+        android:src="@drawable/add_shopping_cart_fill0_wght400_grad0_opsz48" />
+
+    <ImageButton
+        android:id="@+id/remove_from_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price"
+        android:layout_toEndOf="@id/add_to_cart"
+        android:backgroundTint="@color/orange"
+        android:src="@drawable/remove_shopping_cart_fill0_wght400_grad0_opsz48" />
+
 </RelativeLayout>

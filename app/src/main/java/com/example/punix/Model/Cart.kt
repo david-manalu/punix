@@ -1,6 +1,6 @@
 package com.example.punix.Model
 
-class Cart(
+data class Cart(
     var user: User?,
     var items: Map<Item, Int>
 )
