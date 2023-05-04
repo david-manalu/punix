@@ -1,7 +1,9 @@
 package com.example.punix.Controller
 
 import com.example.punix.DatabaseHandler
-import com.example.punix.Model.*
+import com.example.punix.Model.Item
+import com.example.punix.Model.Transaction
+import com.example.punix.Model.User
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.Statement
@@ -11,7 +13,8 @@ class TransactionController {
 
     private var con = DatabaseHandler.connect()
     fun getTransactionById(id: Int): Transaction {
-        val query = "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.method, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
+        val query =
+            "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.method, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
 
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setInt(1, id)
@@ -36,8 +39,9 @@ class TransactionController {
             val itemName = rs.getString("name_item")
             val itemPrice = rs.getInt("price")
             val itemDescription = rs.getString("description")
+            val itemImg = rs.getString("img_url")
             val quantity = rs.getInt("quantity")
-            val item = Item(itemId, itemName, itemPrice, itemDescription)
+            val item = Item(itemId, itemName, itemPrice, itemDescription, itemImg)
 
             items[item] = quantity
 

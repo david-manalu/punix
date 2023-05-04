@@ -22,7 +22,7 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
-            val img_url = rs.getURL("img_url")
+            val img_url = rs.getString("img_url")
 
             val item = Item(id, name, price, description, img_url)
             items.add(item)
@@ -42,7 +42,7 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
-            val img_url = rs.getURL("img_url")
+            val img_url = rs.getString("img_url")
 
             return Item(id, name, price, description, img_url)
         } else {
@@ -58,7 +58,7 @@ class ItemController {
         pstmt.setString(1, item.name)
         pstmt.setInt(2, item.price)
         pstmt.setString(3, item.description)
-        pstmt.setURL(4, item.img)
+        pstmt.setString(4, item.img)
 
 
         pstmt.executeUpdate()
@@ -81,7 +81,7 @@ class ItemController {
         pstmt.setString(1, item.name)
         pstmt.setInt(2, item.price)
         pstmt.setString(3, item.description)
-        pstmt.setURL(4, item.img)
+        pstmt.setString(4, item.img)
         pstmt.setInt(5, id)
 
         pstmt.executeUpdate()
@@ -97,7 +97,7 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
-            val img_url = rs.getURL("img_url")
+            val img_url = rs.getString("img_url")
             return Item(id, name, price, description, img_url)
         } else {
             throw SQLException("Item with id $id not found")

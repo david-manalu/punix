@@ -21,7 +21,7 @@ class CartController {
             val itemPrice = rs.getInt("price")
             val itemDescription = rs.getString("description")
             val quantity = rs.getInt("quantity")
-            val img_url = rs.getURL("img_url")
+            val img_url = rs.getString("img_url")
             val item = Item(itemId, itemName, itemPrice, itemDescription, img_url)
             items[item] = quantity
         }
