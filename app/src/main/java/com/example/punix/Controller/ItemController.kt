@@ -1,7 +1,7 @@
 package com.example.punix.Controller
 
 import com.example.punix.DatabaseHandler
-import com.example.punix.Model.*
+import com.example.punix.Model.Item
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -12,7 +12,7 @@ class ItemController {
 
     fun getItems(): ArrayList<Item> {
         val items: ArrayList<Item> = ArrayList()
-        val query = "SELECT id, name, price, description FROM items"
+        val query = "SELECT id, name, price, description, img_url FROM items"
 
         val stmt: Statement = con!!.createStatement()
         val rs: ResultSet = stmt.executeQuery(query)
@@ -22,8 +22,9 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
+            val img_url = rs.getURL("img_url")
 
-            val item = Item(id, name, price, description)
+            val item = Item(id, name, price, description, img_url)
             items.add(item)
         }
 
@@ -31,7 +32,7 @@ class ItemController {
     }
 
     fun getItemById(id: Int): Item? {
-        val query = "SELECT id, name, price, description FROM items WHERE id = ?"
+        val query = "SELECT id, name, price, description, img_url FROM items WHERE id = ?"
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setInt(1, id)
 
@@ -41,20 +42,24 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
+            val img_url = rs.getURL("img_url")
 
-            return Item(id, name, price, description)
+            return Item(id, name, price, description, img_url)
         } else {
             return null
         }
     }
 
     fun addItem(item: Item): Item {
-        val query = "INSERT INTO items (name, price, description) VALUES (?, ?, ?)"
+        val query = "INSERT INTO items (name, price, description, img_url) VALUES (?, ?, ?, ?)"
 
-        val pstmt: PreparedStatement = con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
+        val pstmt: PreparedStatement =
+            con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         pstmt.setString(1, item.name)
         pstmt.setInt(2, item.price)
         pstmt.setString(3, item.description)
+        pstmt.setURL(4, item.img)
+
 
         pstmt.executeUpdate()
 
@@ -69,18 +74,21 @@ class ItemController {
     }
 
     fun editItemById(id: Int, item: Item): Item {
-        val query = "UPDATE items SET name = ?, price = ?, description = ? WHERE id = ?"
+        val query =
+            "UPDATE items SET name = ?, price = ?, description = ?, img_url = ? WHERE id = ?"
 
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setString(1, item.name)
         pstmt.setInt(2, item.price)
         pstmt.setString(3, item.description)
-        pstmt.setInt(4, id)
+        pstmt.setURL(4, item.img)
+        pstmt.setInt(5, id)
 
         pstmt.executeUpdate()
 
         // Retrieve the updated item from the database and return it
-        val updatedItemQuery = "SELECT id, name, price, description FROM items WHERE id = ?"
+        val updatedItemQuery =
+            "SELECT id, name, price, description, img_url FROM items WHERE id = ?"
         val updatedItemStmt: PreparedStatement = con!!.prepareStatement(updatedItemQuery)
         updatedItemStmt.setInt(1, id)
         val rs: ResultSet = updatedItemStmt.executeQuery()
@@ -89,8 +97,8 @@ class ItemController {
             val name = rs.getString("name")
             val price = rs.getInt("price")
             val description = rs.getString("description")
-
-            return Item(id, name, price, description)
+            val img_url = rs.getURL("img_url")
+            return Item(id, name, price, description, img_url)
         } else {
             throw SQLException("Item with id $id not found")
         }

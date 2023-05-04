@@ -4,14 +4,12 @@ import com.example.punix.DatabaseHandler
 import com.example.punix.Model.*
 import java.sql.PreparedStatement
 import java.sql.ResultSet
-import java.sql.SQLException
-import java.sql.Statement
 
 class CartController {
     private var con = DatabaseHandler.connect()
 
     fun getCart(userId: Int): Cart {
-        val query = "SELECT items.id, items.name, items.price, items.description, carts.quantity FROM carts, items WHERE items.id = carts.id_item and carts.id_user = ?"
+        val query = "SELECT items.id, items.name, items.price, items.description, items.img_url, carts.quantity FROM carts, items WHERE items.id = carts.id_item and carts.id_user = ?"
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setInt(1, userId)
         val rs: ResultSet = pstmt.executeQuery()
@@ -23,7 +21,8 @@ class CartController {
             val itemPrice = rs.getInt("price")
             val itemDescription = rs.getString("description")
             val quantity = rs.getInt("quantity")
-            val item = Item(itemId, itemName, itemPrice, itemDescription)
+            val img_url = rs.getURL("img_url")
+            val item = Item(itemId, itemName, itemPrice, itemDescription, img_url)
             items[item] = quantity
         }
 

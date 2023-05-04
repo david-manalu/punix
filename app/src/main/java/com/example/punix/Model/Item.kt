@@ -1,8 +1,11 @@
 package com.example.punix.Model
 
-class Item(
+import java.net.URL
+
+data class Item(
     var id: Int,
     var name: String,
     var price: Int,
-    var description: String
+    var description: String,
+    var img: URL
 )
