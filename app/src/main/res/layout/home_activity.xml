@@ -40,14 +40,14 @@
         android:textSize="18sp"
         android:layout_marginTop="20dp"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/daily_promo_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/order_now"
         android:textSize="18sp"
-        android:textColor="#ffffff"
-        android:background="#8FBC8F"
+        android:textColor="@color/black"
+        android:background="@drawable/gradient"
         android:padding="10dp"
         android:layout_marginTop="20dp"/>
 
@@ -71,14 +71,14 @@
         android:textSize="18sp"
         android:layout_marginTop="20dp"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/browse_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/browse"
         android:textSize="18sp"
-        android:textColor="#ffffff"
-        android:background="#8FBC8F"
+        android:textColor="@color/black"
+        android:background="@drawable/gradient"
         android:padding="10dp"
         android:layout_marginTop="20dp"/>
 

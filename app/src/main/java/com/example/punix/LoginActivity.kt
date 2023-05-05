@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var btnLogin: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_activity)
@@ -47,6 +48,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
+
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -87,7 +89,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.forgot_password -> {
                 auth.sendPasswordResetEmail(email.text.toString())
-                Toast.makeText(baseContext,"Password Reset Email successfully sent",Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    baseContext,
+                    "Password Reset Email successfully sent",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

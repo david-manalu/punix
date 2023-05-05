@@ -27,7 +27,8 @@ class ItemController {
             val item = Item(id, name, price, description, img_url)
             items.add(item)
         }
-
+        stmt.close()
+        con!!.close()
         return items
     }
 

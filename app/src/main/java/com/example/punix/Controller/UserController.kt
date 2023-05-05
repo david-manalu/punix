@@ -1,7 +1,8 @@
 package com.example.punix.Controller
 
 import com.example.punix.DatabaseHandler
-import com.example.punix.Model.*
+import com.example.punix.Model.User
+import com.google.firebase.auth.FirebaseAuth
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -9,6 +10,22 @@ import java.sql.Statement
 
 class UserController {
     private var con = DatabaseHandler.connect()
+
+    companion object {
+        private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+        var con = DatabaseHandler.connect()
+        fun getCurrentUserID(): Int {
+            val query = "SELECT id FROM users WHERE email= ?"
+            val pstmt: PreparedStatement =
+                con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
+            pstmt.setString(1, auth.currentUser!!.email.toString())
+            val rs: ResultSet = pstmt.executeQuery()
+            if (rs.first()) {
+                return rs.getInt("id")
+            }
+            return 0
+        }
+    }
 
     fun getUsers(): ArrayList<User> {
         val users: ArrayList<User> = ArrayList()
@@ -34,7 +51,8 @@ class UserController {
     fun addUser(user: User): User {
         val query = "INSERT INTO users (name, email, password, admin) VALUES (?, ?, ?, ?)"
 
-        val pstmt: PreparedStatement = con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
+        val pstmt: PreparedStatement =
+            con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         pstmt.setString(1, user.name)
         pstmt.setString(2, user.email)
         pstmt.setString(3, user.password)
@@ -48,11 +66,11 @@ class UserController {
             val id = rs.getInt(1)
             user.id = id
         }
-
+        pstmt.close()
         return user
     }
 
-    fun getUserByEmail(email: String): User? {
+    fun getUserByEmail(email: String?): User? {
         for (user in getUsers()) {
             if (user.email.equals(email)) {
                 return user

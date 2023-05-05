@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="20dp">
@@ -23,11 +24,10 @@
         android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/checkout_items"
-            android:layout_width="match_parent"
+            android:id="@+id/cartRecyclerView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="8dp" />
+            tools:listitem="@layout/browse_activity" />
 
     </ScrollView>
 
@@ -121,15 +121,17 @@
     </LinearLayout>
 
     <!-- Checkout Button Section -->
-    <Button
-        android:id="@+id/checkout_button"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCheckout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#F6B400"
-        android:text="Checkout"
-        android:textColor="#FFFFFF"
+        android:layout_marginBottom="47dp"
+        android:background="@drawable/gradient"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="Proceed to Checkout"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
