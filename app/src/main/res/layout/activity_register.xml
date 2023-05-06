@@ -17,10 +17,23 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#F0E68C"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="#333333"
+        android:textColorHint="#666666"
+        android:textSize="18sp" />
+
+    <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#F0E68C"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -43,38 +56,23 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="#8FBC8F"
         android:padding="10dp"
-        android:text="Log in"
+        android:text="Register"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Forgot password?"
-        android:clickable="true"
-        android:onClick="onClick"
-        android:textColor="#333333"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/sign_up"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:clickable="true"
-        android:onClick="onClick"
-        android:text="Don't have an account? Sign up"
+        android:text="Already have an account? Log in"
         android:textColor="#333333"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -83,5 +81,4 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
 </LinearLayout>
