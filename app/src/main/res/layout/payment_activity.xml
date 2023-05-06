@@ -135,14 +135,18 @@
     </ScrollView>
 
     <!-- Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/select_payment_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Proceed to Payment"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="#F4B41A"
+        android:background="@drawable/gradient"
         android:textColor="#FFFFFF"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:layout_marginBottom="50dp"/>
 </LinearLayout>
