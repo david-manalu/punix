@@ -28,7 +28,7 @@ class CartController {
             items[item] = quantity
         }
 
-        return Cart(UserController().getUserById(userId), items)
+        return Cart(items)
     }
 
     fun updateItemQuantity(userId: Int, itemId: Int, newQuantity: Int): Boolean {
@@ -88,6 +88,14 @@ class CartController {
         return numRowsUpdated > 0
     }
 
+    fun emptyCart() : Boolean {
+        val stmt = con!!.prepareStatement("DELETE FROM carts WHERE id_user = ?")
+        stmt.setInt(1, UserController.getCurrentUserID())
+
+        val result = stmt.executeUpdate()
+
+        return result > 0
+    }
 //    fun checkoutCart(userId: Int)
 //    {
 //        val cart: Cart = getCart(userId)

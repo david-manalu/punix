@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.punix.Controller.CartController
 import com.example.punix.Controller.UserController
+import com.example.punix.Model.Cart
 import com.example.punix.Model.Item
 import com.example.punix.databinding.CheckoutActivityBinding
 
@@ -37,7 +38,7 @@ class CartActivity : AppCompatActivity() {
         prepare()
         binding.cartRecyclerView.setHasFixedSize(true)
 
-        var actionBar : ActionBar? = supportActionBar
+        val actionBar: ActionBar? = supportActionBar
         actionBar!!.title = "Cart"
         actionBar.setDisplayShowHomeEnabled(true)
         actionBar.setDisplayHomeAsUpEnabled(true)
@@ -51,6 +52,9 @@ class CartActivity : AppCompatActivity() {
         }
         proceedCheckout.setOnClickListener {
             val intent = Intent(this@CartActivity, CheckoutActivity::class.java)
+            intent.putExtra(CheckoutActivity.EXTRA_TOTAL, total)
+            val cart: Cart = CartController().getCart(UserController.getCurrentUserID())
+            intent.putExtra(CheckoutActivity.EXTRA_CART, cart)
             startActivity(intent)
         }
     }
@@ -62,8 +66,8 @@ class CartActivity : AppCompatActivity() {
         }
         tax = (subtotal * 0.06).toFloat()
         total = subtotal + tax
-        textSubtotal.text = "Rp. " + subtotal.toString()
-        textTotal.text = "Rp. " + total.toString()
-        textTax.text = "Rp. " + tax.toString()
+        textSubtotal.text = "Rp. $subtotal"
+        textTotal.text = "Rp. $total"
+        textTax.text = "Rp. $tax"
     }
 }

@@ -66,4 +66,43 @@ class TransactionController {
         }
         return transactions
     }
+
+    fun createTransactions(paymentMethod: String, total: Float): Boolean {
+        var success: Boolean = true
+        val query =
+            "INSERT INTO transactions (id_user, datetime, status, method, total) VALUES (?, NOW(), ?, ?, ?)"
+
+        val pstmt: PreparedStatement =
+            con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
+        pstmt.setInt(1, UserController.getCurrentUserID())
+        pstmt.setString(2, "Completed")
+        pstmt.setString(3, paymentMethod)
+        pstmt.setFloat(4, total)
+
+        pstmt.executeUpdate()
+
+        var transaction_id = 0
+        val rs = pstmt.generatedKeys
+        if (rs.next()) {
+            val id = rs.getInt("id")
+            transaction_id = id
+        } else {
+            return false
+        }
+        val cart = CartController().getCart(UserController.getCurrentUserID())
+        cart.items.forEach {
+            val query2 =
+                "INSERT INTO detailed_transactions (id_transaction,id_item,quantity) VALUES (?, ?, ?)"
+            val pstmt2: PreparedStatement = con!!.prepareStatement(query2)
+            pstmt2.setInt(1, transaction_id)
+            pstmt2.setInt(2, it.key.id)
+            pstmt2.setInt(3, it.value)
+            val rs2 = pstmt2.executeUpdate()
+
+            if (rs2 == 0) {
+                success = false
+            }
+        }
+        return success
+    }
 }
