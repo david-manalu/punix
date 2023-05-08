@@ -1,9 +1,8 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore.Audio.Radio
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.punix.Controller.CartController
 import com.example.punix.Controller.TransactionController
 import com.example.punix.Model.Cart
+import com.example.punix.R
 
 class CheckoutActivity : AppCompatActivity() {
 
@@ -62,9 +62,9 @@ class CheckoutActivity : AppCompatActivity() {
                 ).show()
             }
             CartController().emptyCart()
-            val intent = Intent(this@CheckoutActivity, CompleteOrder::class.java)
-            intent.putExtra(CompleteOrder.TOTAL, total)
-            intent.putExtra(CompleteOrder.EXTRA_CART, cart)
+            val intent = Intent(this@CheckoutActivity, CompleteOrderActivity::class.java)
+            intent.putExtra(CompleteOrderActivity.TOTAL, total)
+            intent.putExtra(CompleteOrderActivity.EXTRA_CART, cart)
             finish()
             startActivity(intent)
         }

@@ -1,6 +1,6 @@
 package com.example.punix.Controller
 
-import com.example.punix.DatabaseHandler
+import com.example.punix.Handler.DatabaseHandler
 import com.example.punix.Model.Item
 import com.example.punix.Model.Transaction
 import com.example.punix.Model.User

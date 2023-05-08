@@ -1,4 +1,4 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.content.Intent
 import android.os.Build
@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.punix.Model.Cart
+import com.example.punix.R
 
-class CompleteOrder : AppCompatActivity() {
+class CompleteOrderActivity : AppCompatActivity() {
     private lateinit var totalBayar: TextView
     private lateinit var orderItems: TextView
     private var total: Float = 0F

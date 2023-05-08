@@ -1,11 +1,13 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.punix.Controller.ItemController
+import com.example.punix.Adapter.ListMakananAdapter
 import com.example.punix.Model.Item
+import com.example.punix.R
 import com.example.punix.databinding.ActivityBrowseBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

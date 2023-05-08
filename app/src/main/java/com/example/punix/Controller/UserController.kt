@@ -1,6 +1,6 @@
 package com.example.punix.Controller
 
-import com.example.punix.DatabaseHandler
+import com.example.punix.Handler.DatabaseHandler
 import com.example.punix.Model.User
 import com.google.firebase.auth.FirebaseAuth
 import java.sql.PreparedStatement

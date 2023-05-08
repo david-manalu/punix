@@ -1,6 +1,5 @@
-package com.example.punix
+package com.example.punix.Handler
 
-import android.app.AlertDialog
 import android.os.StrictMode
 import android.util.Log
 import java.sql.DriverManager

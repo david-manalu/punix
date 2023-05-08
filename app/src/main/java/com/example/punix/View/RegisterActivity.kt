@@ -1,4 +1,4 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.punix.Controller.UserController
 import com.example.punix.Model.User
+import com.example.punix.R
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
@@ -56,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
                 auth.signOut()
                 finish()
-                val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Singed Up Failed!", Toast.LENGTH_SHORT).show()

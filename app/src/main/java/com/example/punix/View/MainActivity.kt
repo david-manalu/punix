@@ -1,4 +1,4 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -8,18 +8,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.punix.Controller.CartController
 import com.example.punix.Controller.TransactionController
-import com.example.punix.Controller.UserController
-import com.example.punix.Model.User
+import com.example.punix.R
 import com.google.firebase.auth.FirebaseAuth
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import java.sql.ResultSet
 import java.sql.SQLException
-import java.sql.Statement
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnBrowse: Button
@@ -123,7 +119,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.logout -> {
                 auth.signOut()
                 finish()
-                val intent = Intent(this@MainActivity,LoginActivity::class.java)
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
                 startActivity(intent)
                 return true
             }

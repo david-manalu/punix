@@ -1,4 +1,4 @@
-package com.example.punix
+package com.example.punix.View
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,12 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.punix.Adapter.CartAdapter
 import com.example.punix.Controller.CartController
 import com.example.punix.Controller.UserController
 import com.example.punix.Model.Cart
 import com.example.punix.Model.Item
+import com.example.punix.R
 import com.example.punix.databinding.CheckoutActivityBinding
 
 class CartActivity : AppCompatActivity() {
