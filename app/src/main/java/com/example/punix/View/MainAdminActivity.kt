@@ -36,7 +36,7 @@ class MainAdminActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.admin_transaction_parent_button -> {
-                val intent = Intent(this@MainAdminActivity, AdminItemActivity::class.java)
+                val intent = Intent(this@MainAdminActivity, AdminTransactionActivity::class.java)
                 startActivity(intent)
             }
         }

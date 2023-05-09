@@ -81,9 +81,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun reload() {
-        finish()
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        startActivity(intent)
+//        finish()
+//        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//        startActivity(intent)
     }
 
     companion object {
