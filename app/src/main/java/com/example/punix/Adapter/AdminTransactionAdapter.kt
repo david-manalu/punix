@@ -25,6 +25,8 @@ class AdminTransactionAdapter(private val listMakanan: ArrayList<Transaction>) :
                     total += kv.key.price * kv.value
                 }
 
+                total = total * 106 / 100
+
                 price.text = total.toString()
 //                adminItemEdit.setOnClickListener {
 ////                    var message = ""

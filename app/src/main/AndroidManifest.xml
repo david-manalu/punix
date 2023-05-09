@@ -39,6 +39,11 @@
             android:label="Browse Food"
             android:parentActivityName=".View.MainAdminActivity" />
         <activity
+            android:name=".View.AdminEditItemActivity"
+            android:exported="false"
+            android:label="Browse Food"
+            android:parentActivityName=".View.AdminItemActivity" />
+        <activity
             android:name=".View.AdminTransactionActivity"
             android:exported="false"
             android:label="Browse Transaction"
