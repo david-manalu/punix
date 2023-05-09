@@ -200,16 +200,7 @@ class CheckoutActivity : AppCompatActivity() {
         actionBar.setDisplayShowHomeEnabled(true)
         actionBar.setDisplayHomeAsUpEnabled(true)
         pay.setOnClickListener {
-
             createOrder()
-//            val addTransaction = TransactionController().createTransactions(method, total)
-//            if (!addTransaction) {
-//                Toast.makeText(
-//                    baseContext,
-//                    "Failed to process order please try again",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
             val intent = Intent(this@CheckoutActivity, CompleteOrderActivity::class.java)
             intent.putExtra(CompleteOrderActivity.TOTAL, total)
             intent.putExtra(CompleteOrderActivity.EXTRA_CART, cart)
