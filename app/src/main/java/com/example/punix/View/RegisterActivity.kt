@@ -29,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.email)
         etPass = findViewById(R.id.password)
         etUsername = findViewById(R.id.username)
+        
         btnSignUp.setOnClickListener {
             signUpUser()
         }
