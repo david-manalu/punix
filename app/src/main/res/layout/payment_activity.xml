@@ -36,12 +36,12 @@
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/gopay"
+                    android:id="@+id/paypal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:drawableEnd="@drawable/gopayimage"
+                    android:drawableEnd="@drawable/paypallogo"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />

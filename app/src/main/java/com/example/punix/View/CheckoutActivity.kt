@@ -184,7 +184,7 @@ class CheckoutActivity : AppCompatActivity() {
             } else if (radio.id == R.id.ovo) {
                 "OVO"
             } else {
-                "GoPay"
+                "PayPal"
             }
         }
 

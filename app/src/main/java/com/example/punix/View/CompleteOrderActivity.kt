@@ -15,7 +15,7 @@ class CompleteOrderActivity : AppCompatActivity() {
     private lateinit var orderItems: TextView
     private var total: Float = 0F
     private lateinit var cart: Cart
-    private lateinit var checkmark: ImageView
+    private lateinit var ok: ImageView
 
     companion object {
         const val TOTAL = "extra_total"
@@ -28,13 +28,13 @@ class CompleteOrderActivity : AppCompatActivity() {
         setContentView(R.layout.order_complete_activity)
         totalBayar = findViewById(R.id.order_total_text)
         orderItems = findViewById(R.id.items)
-        checkmark = findViewById(R.id.order_complete_image)
+        ok = findViewById(R.id.order_complete_ok)
         total = intent.getFloatExtra(TOTAL, 0F)
         cart = intent.getParcelableExtra(EXTRA_CART, Cart::class.java) as Cart
         orderItems.text = summaryBuilder()
         totalBayar.text = "Total = $total"
 
-        checkmark.setOnClickListener {
+        ok.setOnClickListener {
             finish()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

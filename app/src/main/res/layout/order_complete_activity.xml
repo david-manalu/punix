@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
-        android:text="Order Complete!"
+        android:text="Awaiting Payment..."
         android:textSize="28sp"
         android:textStyle="bold" />
 
@@ -62,12 +62,15 @@
         android:textStyle="bold" />
 
     <!-- Order Complete Image -->
-    <ImageView
-        android:id="@+id/order_complete_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/order_complete_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:clickable="true"
-        android:onClick="onClick"
-        android:src="@drawable/baseline_check_circle_outline_24" />
+        android:text="OK"
+        android:background="@drawable/gradient"
+        android:layout_marginTop="30dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="20sp"/>
 </LinearLayout>
