@@ -9,81 +9,36 @@
         android:id="@+id/order_complete_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
         android:text="Order Complete!"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
 
     <!-- Order Summary -->
     <TextView
         android:id="@+id/order_summary_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Order Summary:"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"/>
+        android:textStyle="bold" />
 
     <!-- Order Items -->
     <LinearLayout
         android:id="@+id/order_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-        <!-- Order Item 1 -->
-        <LinearLayout
-            android:id="@+id/order_item_1"
+        <TextView
+            android:id="@+id/items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/order_item_1_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Nasi Goreng"
-                android:textSize="18sp"
-                android:textColor="#333333"/>
-
-            <TextView
-                android:id="@+id/order_item_1_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 25.000"
-                android:textSize="18sp"
-                android:textColor="#333333"/>
-
-        </LinearLayout>
-
-        <!-- Order Item 2 -->
-        <LinearLayout
-            android:id="@+id/order_item_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/order_item_2_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ayam Bakar"
-                android:textSize="18sp"
-                android:textColor="#333333"/>
-
-            <TextView
-                android:id="@+id/order_item_2_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 35.000"
-                android:textSize="18sp"
-                android:textColor="#333333"/>
-
-        </LinearLayout>
+            android:text="@string/lorem"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -92,10 +47,10 @@
         android:id="@+id/order_total_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Total: Rp 60.000"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"/>
+        android:textStyle="bold" />
 
     <!-- Estimated Arrival Time -->
     <TextView
@@ -104,13 +59,15 @@
         android:layout_height="wrap_content"
         android:text="Estimated Arrival Time: 30 minutes"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <!-- Order Complete Image -->
     <ImageView
         android:id="@+id/order_complete_image"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/baseline_check_circle_outline_24"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:src="@drawable/baseline_check_circle_outline_24" />
 </LinearLayout>
