@@ -25,7 +25,7 @@ class TransactionController {
         var transactionId: Int = 0
         var datetime: Timestamp = Timestamp.valueOf("2023-04-27 18:42:30")
         var status: String = ""
-        var method: String = ""
+        var token: String = ""
 
         while (rs.next()) {
             val userId = rs.getInt("id_user")
@@ -48,9 +48,9 @@ class TransactionController {
             transactionId = rs.getInt("id_transaction")
             datetime = rs.getTimestamp("datetime")
             status = rs.getString("status")
-            method = rs.getString("method")
+            token = rs.getString("token")
         }
-        return Transaction(transactionId, user, datetime, status, method, items)
+        return Transaction(transactionId, user, datetime, status, token, items)
     }
 
     fun getTransactions(): ArrayList<Transaction> {
@@ -67,17 +67,17 @@ class TransactionController {
         return transactions
     }
 
-    fun createTransactions(paymentMethod: String, total: Float): Boolean {
+    fun createTransactions(status: String, token: String, total: Int): Boolean {
         var success: Boolean = true
         val query =
-            "INSERT INTO transactions (id_user, datetime, status, method, total) VALUES (?, NOW(), ?, ?, ?)"
+            "INSERT INTO transactions (id_user, datetime, status, token, total) VALUES (?, NOW(), ?, ?, ?)"
 
         val pstmt: PreparedStatement =
             con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         pstmt.setInt(1, UserController.getCurrentUserID())
-        pstmt.setString(2, "Completed")
-        pstmt.setString(3, paymentMethod)
-        pstmt.setFloat(4, total)
+        pstmt.setString(2, status)
+        pstmt.setString(3, token)
+        pstmt.setInt(4, total)
 
         pstmt.executeUpdate()
 

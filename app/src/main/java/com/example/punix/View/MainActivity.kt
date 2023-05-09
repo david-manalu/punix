@@ -90,10 +90,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            {
 //                showMessage(kv.key.name, kv.value.toString())
 //            }
-            for (transaction in TransactionController().getTransactions())
-            {
-                showMessage(transaction.id.toString(), transaction.status + " " + transaction.method)
-            }
+//            for (transaction in TransactionController().getTransactions())
+//            {
+//                showMessage(transaction.id.toString(), transaction.status + " " + transaction.token)
+//            }
+           // TransactionController().createTransactions("TEST", "123", 20000)
+
         }
         catch (e: SQLException)
         {
