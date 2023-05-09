@@ -131,6 +131,7 @@ class CheckoutActivity : AppCompatActivity() {
                         val r = responseString?.let { JSONObject(it) }
                         val links: JSONArray = r!!.getJSONArray("links")
                         TransactionController().createTransaction(r.getString("status"), r.getString("id"), total.toInt())
+                        CartController().emptyCart()
                         Log.d("id", JSONObject(responseString).getString("id"))
                         //iterate the array to get the approval link
                         for (i in 0 until links.length()) {
@@ -207,7 +208,6 @@ class CheckoutActivity : AppCompatActivity() {
 //                    Toast.LENGTH_LONG
 //                ).show()
 //            }
-            CartController().emptyCart()
             val intent = Intent(this@CheckoutActivity, CompleteOrderActivity::class.java)
             intent.putExtra(CompleteOrderActivity.TOTAL, total)
             intent.putExtra(CompleteOrderActivity.EXTRA_CART, cart)

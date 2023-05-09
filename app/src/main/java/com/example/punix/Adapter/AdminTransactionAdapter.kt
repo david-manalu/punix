@@ -17,7 +17,7 @@ class AdminTransactionAdapter(private val listMakanan: ArrayList<Transaction>) :
             with(binding) {
                 //Glide.with(itemView.context).load(item.img).into(imgPhoto)
                 txtName.text = transaction.token
-                txtDescription.text = transaction.status + " | " + (transaction.user?.name ?: "")
+                txtDescription.text = transaction.status + " | " + (transaction.user?.email ?: "")
 
                 var total = 0
                 for (kv in transaction.items)
