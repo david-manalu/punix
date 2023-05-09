@@ -15,7 +15,8 @@
         tools:targetApi="31">
         <activity
             android:name=".View.CompleteOrderActivity"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".View.CheckoutActivity"
             android:exported="false"
@@ -32,6 +33,21 @@
             android:exported="false"
             android:label="Browse Food"
             android:parentActivityName=".View.MainActivity" />
+        <activity
+            android:name=".View.AdminItemActivity"
+            android:exported="false"
+            android:label="Browse Food"
+            android:parentActivityName=".View.MainAdminActivity" />
+        <activity
+            android:name=".View.AdminEditItemActivity"
+            android:exported="false"
+            android:label="Browse Food"
+            android:parentActivityName=".View.AdminItemActivity" />
+        <activity
+            android:name=".View.AdminTransactionActivity"
+            android:exported="false"
+            android:label="Browse Transaction"
+            android:parentActivityName=".View.MainAdminActivity" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -42,6 +58,16 @@
 
         <activity
             android:name=".View.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".View.MainAdminActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -21,42 +21,42 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnBrowse: Button
     private lateinit var auth: FirebaseAuth
 
-    fun getHTTP(url: String): String {
-        var responseString = ""
-        try {
-            val connection = URL(url).openConnection() as HttpURLConnection
-            connection.requestMethod = "GET"
-            connection.connectTimeout = 10000
-            connection.readTimeout = 10000
-            connection.connect()
+//    fun getHTTP(url: String): String {
+//        var responseString = ""
+//        try {
+//            val connection = URL(url).openConnection() as HttpURLConnection
+//            connection.requestMethod = "GET"
+//            connection.connectTimeout = 10000
+//            connection.readTimeout = 10000
+//            connection.connect()
+//
+//            val inputStream = connection.inputStream
+//            val reader = BufferedReader(InputStreamReader(inputStream))
+//            var line: String?
+//            val response = StringBuffer()
+//
+//            while (reader.readLine().also { line = it } != null) {
+//                response.append(line)
+//            }
+//
+//            reader.close()
+//            connection.disconnect()
+//            responseString = response.toString()
+//        } catch (e: Exception) {
+//            e.message?.let { showMessage("error", it) };
+//        }
+//        return responseString
+//    }
 
-            val inputStream = connection.inputStream
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            var line: String?
-            val response = StringBuffer()
-
-            while (reader.readLine().also { line = it } != null) {
-                response.append(line)
-            }
-
-            reader.close()
-            connection.disconnect()
-            responseString = response.toString()
-        } catch (e: Exception) {
-            e.message?.let { showMessage("error", it) };
-        }
-        return responseString
-    }
-
-    fun showMessage(title: String, message: String) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(title)
-        builder.setMessage(message)
-        builder.setPositiveButton("OK") { dialog, which ->
-            // do something when OK button is clicked
-        }
-        builder.show()
-    }
+//    fun showMessage(title: String, message: String) {
+//        val builder = AlertDialog.Builder(this)
+//        builder.setTitle(title)
+//        builder.setMessage(message)
+//        builder.setPositiveButton("OK") { dialog, which ->
+//            // do something when OK button is clicked
+//        }
+//        builder.show()
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,10 +90,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            {
 //                showMessage(kv.key.name, kv.value.toString())
 //            }
-            for (transaction in TransactionController().getTransactions())
-            {
-                showMessage(transaction.id.toString(), transaction.status + " " + transaction.method)
-            }
+//            for (transaction in TransactionController().getTransactions())
+//            {
+//                showMessage(transaction.id.toString(), transaction.status + " " + transaction.token)
+//            }
+           // TransactionController().createTransactions("TEST", "123", 20000)
+
         }
         catch (e: SQLException)
         {

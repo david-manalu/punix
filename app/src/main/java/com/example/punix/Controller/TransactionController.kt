@@ -14,7 +14,7 @@ class TransactionController {
     private var con = DatabaseHandler.connect()
     fun getTransactionById(id: Int): Transaction {
         val query =
-            "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.method, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
+            "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.token, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin, items.img_url FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
 
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setInt(1, id)
@@ -25,7 +25,7 @@ class TransactionController {
         var transactionId: Int = 0
         var datetime: Timestamp = Timestamp.valueOf("2023-04-27 18:42:30")
         var status: String = ""
-        var method: String = ""
+        var token: String = ""
 
         while (rs.next()) {
             val userId = rs.getInt("id_user")
@@ -48,9 +48,9 @@ class TransactionController {
             transactionId = rs.getInt("id_transaction")
             datetime = rs.getTimestamp("datetime")
             status = rs.getString("status")
-            method = rs.getString("method")
+            token = rs.getString("token")
         }
-        return Transaction(transactionId, user, datetime, status, method, items)
+        return Transaction(transactionId, user, datetime, status, token, items)
     }
 
     fun getTransactions(): ArrayList<Transaction> {
@@ -67,17 +67,17 @@ class TransactionController {
         return transactions
     }
 
-    fun createTransactions(paymentMethod: String, total: Float): Boolean {
+    fun createTransaction(status: String, token: String, total: Int): Boolean {
         var success: Boolean = true
         val query =
-            "INSERT INTO transactions (id_user, datetime, status, method, total) VALUES (?, NOW(), ?, ?, ?)"
+            "INSERT INTO transactions (id_user, datetime, status, token, total) VALUES (?, NOW(), ?, ?, ?)"
 
         val pstmt: PreparedStatement =
             con!!.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         pstmt.setInt(1, UserController.getCurrentUserID())
-        pstmt.setString(2, "Completed")
-        pstmt.setString(3, paymentMethod)
-        pstmt.setFloat(4, total)
+        pstmt.setString(2, status)
+        pstmt.setString(3, token)
+        pstmt.setInt(4, total)
 
         pstmt.executeUpdate()
 

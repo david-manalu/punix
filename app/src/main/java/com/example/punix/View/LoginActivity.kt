@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.punix.Controller.UserController
 import com.example.punix.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -66,15 +67,23 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun updateUI(user: FirebaseUser?) {
         user?.let {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            startActivity(intent)
+            val userx = UserController().getUserByEmail(user.email);
+            if (userx != null) {
+                if (userx.admin) {
+                    val intent = Intent(this@LoginActivity, MainAdminActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
         }
     }
 
     private fun reload() {
-        finish()
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        startActivity(intent)
+//        finish()
+//        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//        startActivity(intent)
     }
 
     companion object {
