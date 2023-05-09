@@ -14,7 +14,7 @@ class TransactionController {
     private var con = DatabaseHandler.connect()
     fun getTransactionById(id: Int): Transaction {
         val query =
-            "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.method, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
+            "SELECT transactions.id AS 'id_transaction', transactions.datetime, transactions.status, transactions.token, items.id AS 'id_item', items.name AS 'name_item', items.price, items.description, detailed_transactions.quantity, users.id AS 'id_user', users.name AS 'name_user', users.email, users.password, users.admin, items.img_url FROM transactions, detailed_transactions, users, items WHERE items.id = detailed_transactions.id_item AND transactions.id = detailed_transactions.id_transaction AND transactions.id_user = users.id AND transactions.id = ?"
 
         val pstmt: PreparedStatement = con!!.prepareStatement(query)
         pstmt.setInt(1, id)
@@ -67,7 +67,7 @@ class TransactionController {
         return transactions
     }
 
-    fun createTransactions(status: String, token: String, total: Int): Boolean {
+    fun createTransaction(status: String, token: String, total: Int): Boolean {
         var success: Boolean = true
         val query =
             "INSERT INTO transactions (id_user, datetime, status, token, total) VALUES (?, NOW(), ?, ?, ?)"

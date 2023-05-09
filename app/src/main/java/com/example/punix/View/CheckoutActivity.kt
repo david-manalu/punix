@@ -130,7 +130,7 @@ class CheckoutActivity : AppCompatActivity() {
                         }
                         val r = responseString?.let { JSONObject(it) }
                         val links: JSONArray = r!!.getJSONArray("links")
-                        TransactionController().createTransactions(r.getString("status"), r.getString("id"), total.toInt())
+                        TransactionController().createTransaction(r.getString("status"), r.getString("id"), total.toInt())
                         Log.d("id", JSONObject(responseString).getString("id"))
                         //iterate the array to get the approval link
                         for (i in 0 until links.length()) {
