@@ -3,6 +3,7 @@ package com.example.punix.View
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -15,7 +16,7 @@ class CompleteOrderActivity : AppCompatActivity() {
     private lateinit var orderItems: TextView
     private var total: Float = 0F
     private lateinit var cart: Cart
-    private lateinit var ok: ImageView
+    private lateinit var ok: Button
 
     companion object {
         const val TOTAL = "extra_total"
