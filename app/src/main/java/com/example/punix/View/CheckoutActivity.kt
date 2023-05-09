@@ -99,18 +99,20 @@ class CheckoutActivity : AppCompatActivity() {
         client.addHeader("Authorization", "Bearer $accessToken")
         val total2 = Math.floor(total * 100 / 14709.65) / 100
 
-        val order = """{"intent": "CAPTURE","purchase_units": [
-      {
-        "amount": {
-          "currency_code": "USD",
-          "value": "$total2"
-        }
-      }
-    ],"application_context": {
-        "brand_name": "Punix Restaurant",
-        "return_url": "http://10.0.2.2/transaction.php/",
-        "cancel_url": "http://10.0.2.2/transaction.php/"
-    }}"""
+        val order = """
+        {"intent": "CAPTURE","purchase_units": [
+          {
+            "amount": {
+              "currency_code": "USD",
+              "value": "$total2"
+            }
+          }
+        ],"application_context": {
+            "brand_name": "Punix Restaurant",
+            "return_url": "http://10.0.2.2/transaction.php/",
+            "cancel_url": "http://10.0.2.2/transaction.php/"
+        }}
+        """
 
         val entity: HttpEntity = StringEntity(order, "utf-8")
         client.post(
