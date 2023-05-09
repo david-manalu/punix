@@ -96,15 +96,4 @@ class CartController {
 
         return result > 0
     }
-//    fun checkoutCart(userId: Int)
-//    {
-//        val cart: Cart = getCart(userId)
-//        for (kv in cart.items)
-//        {
-//            deleteItemFromCart(userId, kv.key.id)
-//            val query = "INSERT INTO detailed_transactions (id_transaction, id_item, quantity) VALUES (?, ?, ?);"
-//        }
-//        val user: User? = UserController().getUserById(userId)
-//
-//    }
 }
